@@ -1,344 +1,587 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    display: block;
-    height: 100dvh;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--electric-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3) {
-    --pill-accent: var(--french-violet);
-  }
-
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5),
-  .pill-group .pill:nth-child(6n + 6) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title() }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="loader-name">Aditya <span>Hedau</span></div>
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill"></div>
     </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
-        }
+    <div class="loader-text">INITIALIZING PORTFOLIO...</div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- Three.js Canvas -->
+  <canvas id="three-canvas"></canvas>
+
+  <!-- Ambient orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <div class="container z1">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="#hero" class="nav-logo">PORTFOLIO<span>.</span></a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+        </ul>
+        <div class="nav-toggler" id="navToggler">
+          <span></span><span></span><span></span>
+        </div>
       </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://x.com/angular"
-          aria-label="X"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="X"
-          >
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <div class="container z1 hero-inner">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <div class="hero-eyebrow">Full Stack Developer</div>
+          <h1 class="hero-name">
+            <span id="firstName">Aditya</span><br>
+            <span class="gradient-text" id="lastName">Hedau</span>
+          </h1>
+          <div class="hero-role">
+            Building <span id="typed"></span>
+          </div>
+          <p class="hero-desc">
+            Full Stack Developer at Iceico Pvt. Ltd., crafting Angular frontends and NestJS backends that empower
+            clients to manage their own digital presence — beautifully and independently.
+          </p>
+          <div class="hero-btns">
+            <a href="#projects" class="btn-primary-custom">
+              <i class="bi bi-grid-3x3-gap"></i> View Projects
+            </a>
+            <a href="#contact" class="btn-ghost">
+              <i class="bi bi-send"></i> Get In Touch
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <div class="stat-num" data-count="5">0</div>
+              <div class="stat-label">Production Sites</div>
+            </div>
+            <div>
+              <div class="stat-num" data-count="4">0</div>
+              <div class="stat-label">Major Projects</div>
+            </div>
+            <div>
+              <div class="stat-num" data-count="1">0</div>
+              <div class="stat-label">Year Experience</div>
+            </div>
+            <div>
+              <div class="stat-num" data-count="10">0</div>
+              <div class="stat-label">Tech Stack</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="hero-card-wrap" id="heroCard">
+            <div class="hero-card" data-tilt data-tilt-max="12" data-tilt-glare data-tilt-max-glare="0.15">
+              <div class="hero-card-glow"></div>
+              <div class="hero-card-avatar">AH</div>
+              <div class="hero-card-name">Aditya Hedau</div>
+              <div class="hero-card-role">FULL STACK · MEAN · NESTJS</div>
+              <div class="hero-card-skills">
+                <span class="hero-card-skill">Angular</span>
+                <span class="hero-card-skill">NestJS</span>
+                <span class="hero-card-skill">MongoDB</span>
+                <span class="hero-card-skill">TypeScript</span>
+                <span class="hero-card-skill">Node.js</span>
+                <span class="hero-card-skill">JWT</span>
+              </div>
+              <div class="hero-card-status">
+                <div class="status-dot"></div>
+                Available for opportunities
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <div class="scroll-indicator z1">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== TECH MARQUEE ===== -->
+  <div class="marquee-section z1">
+    <div class="marquee-track" id="marqueeTrack">
+      <!-- duplicated for seamless loop -->
+      <span class="marquee-item">Angular <span class="dot">✦</span></span>
+      <span class="marquee-item">NestJS <span class="dot">✦</span></span>
+      <span class="marquee-item">MongoDB <span class="dot">✦</span></span>
+      <span class="marquee-item">TypeScript <span class="dot">✦</span></span>
+      <span class="marquee-item">Node.js <span class="dot">✦</span></span>
+      <span class="marquee-item">Cloudinary <span class="dot">✦</span></span>
+      <span class="marquee-item">JWT Auth <span class="dot">✦</span></span>
+      <span class="marquee-item">REST APIs <span class="dot">✦</span></span>
+      <span class="marquee-item">Python · Flask <span class="dot">✦</span></span>
+      <span class="marquee-item">Express.js <span class="dot">✦</span></span>
+      <span class="marquee-item">Angular <span class="dot">✦</span></span>
+      <span class="marquee-item">NestJS <span class="dot">✦</span></span>
+      <span class="marquee-item">MongoDB <span class="dot">✦</span></span>
+      <span class="marquee-item">TypeScript <span class="dot">✦</span></span>
+      <span class="marquee-item">Node.js <span class="dot">✦</span></span>
+      <span class="marquee-item">Cloudinary <span class="dot">✦</span></span>
+      <span class="marquee-item">JWT Auth <span class="dot">✦</span></span>
+      <span class="marquee-item">REST APIs <span class="dot">✦</span></span>
+      <span class="marquee-item">Python · Flask <span class="dot">✦</span></span>
+      <span class="marquee-item">Express.js <span class="dot">✦</span></span>
     </div>
   </div>
-</main>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="container z1">
+      <div class="section-label"><span>// 01</span> About Me</div>
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-6">
+          <h2 class="section-heading">Crafting digital experiences<br><span class="gradient-text">end to end</span></h2>
+          <p class="about-text">
+            I'm a <strong>Full Stack Developer</strong> based in Nagpur, Maharashtra, currently building
+            production-grade Angular apps and NestJS backends at <strong>Iceico Pvt. Ltd.</strong>
+          </p>
+          <br>
+          <p class="about-text">
+            I specialize in the <strong>MEAN stack</strong> — with deep expertise in NestJS decorators, Guards, modular
+            architecture, <strong>JWT authentication</strong>, RBAC, and cloud-native tooling like <strong>Cloudinary &
+              MongoDB Atlas</strong>. My goal is always to build systems that reduce client dependency and improve
+            real-world operational efficiency.
+          </p>
+          <br>
+          <p class="about-text">
+            When I'm not shipping features, I'm exploring new frameworks, fine-tuning architectures, and pushing for
+            cleaner, more scalable codebases.
+          </p>
 
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <div class="highlight-icon"><i class="bi bi-cloud-upload"></i></div>
+              <div class="highlight-title">Cloud-Native</div>
+              <div class="highlight-body">MongoDB Atlas · Cloudinary CDN</div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon"><i class="bi bi-shield-lock"></i></div>
+              <div class="highlight-title">Secure by Design</div>
+              <div class="highlight-body">JWT · RBAC · NestJS Guards</div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon"><i class="bi bi-layers"></i></div>
+              <div class="highlight-title">Modular Arch</div>
+              <div class="highlight-body">NestJS · MVC · DTOs</div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon"><i class="bi bi-phone"></i></div>
+              <div class="highlight-title">Responsive UI</div>
+              <div class="highlight-body">Angular v17+ · Bootstrap · Lazy Loading</div>
+            </div>
+          </div>
+        </div>
 
+        <div class="col-lg-6">
+          <div class="floating-badge">
+            <div class="dot"></div> Experience Timeline
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="tl-date">2025 – PRESENT</div>
+              <div class="tl-title">Full Stack Developer</div>
+              <div class="tl-company">Iceico Pvt. Ltd. · Nagpur, Maharashtra</div>
+              <div class="tl-desc">Building production Angular websites and a full-featured NestJS CMS admin panel.
+                Leading API design, auth systems, and cloud media integrations.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-date">2025</div>
+              <div class="tl-title">B.Sc. Computer Science</div>
+              <div class="tl-company">Dr. Ambedkar College · RTMNU, Nagpur</div>
+              <div class="tl-desc">Strong foundation in computer science, algorithms, and software development
+                principles.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-date">2024 – 2025</div>
+              <div class="tl-title">Independent Projects</div>
+              <div class="tl-company">Self-driven Development</div>
+              <div class="tl-desc">Built E-Commerce backends, Quiz platforms, Clone projects — sharpening MEAN stack and
+                Python/Flask skills across varied domains.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills">
+    <div class="container z1">
+      <div class="section-label"><span>// 02</span> Technical Skills</div>
+      <h2 class="section-heading">My <span class="gradient-text">tech stack</span></h2>
+      <p class="section-sub">A curated set of tools and technologies I use to build scalable, production-ready
+        applications.</p>
+
+      <div class="skill-grid">
+        <div class="skill-card">
+          <span class="skill-cat-icon">🖥️</span>
+          <div class="skill-cat">Languages</div>
+          <div class="skill-tags">
+            <span class="skill-tag">JavaScript ES6+</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-cat-icon">⚡</span>
+          <div class="skill-cat">Frontend</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Angular v17+</span>
+            <span class="skill-tag">Bootstrap</span>
+            <span class="skill-tag">Reactive Forms</span>
+            <span class="skill-tag">Lazy Loading</span>
+            <span class="skill-tag">Angular Router</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-cat-icon">🔧</span>
+          <div class="skill-cat">Backend</div>
+          <div class="skill-tags">
+            <span class="skill-tag">NestJS</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express.js</span>
+            <span class="skill-tag">RESTful APIs</span>
+            <span class="skill-tag">MVC</span>
+            <span class="skill-tag">DTOs</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-cat-icon">🗄️</span>
+          <div class="skill-cat">Databases</div>
+          <div class="skill-tags">
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">MongoDB Atlas</span>
+            <span class="skill-tag">Mongoose ODM</span>
+            <span class="skill-tag">SQLite</span>
+            <span class="skill-tag">Schema Design</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-cat-icon">🔐</span>
+          <div class="skill-cat">Auth & Security</div>
+          <div class="skill-tags">
+            <span class="skill-tag">JWT</span>
+            <span class="skill-tag">RBAC</span>
+            <span class="skill-tag">NestJS Guards</span>
+            <span class="skill-tag">Route Protection</span>
+            <span class="skill-tag">Token Validation</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-cat-icon">☁️</span>
+          <div class="skill-cat">Cloud & DevOps</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Cloudinary</span>
+            <span class="skill-tag">CDN Delivery</span>
+            <span class="skill-tag">Git / GitHub</span>
+            <span class="skill-tag">Postman</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">VS Code</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proficiency bars -->
+      <div class="row mt-5">
+        <div class="col-lg-6">
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span>Angular</span><span>92%</span></div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" data-width="92"></div>
+              </div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span>NestJS</span><span>88%</span></div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" data-width="88"></div>
+              </div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span>TypeScript</span><span>85%</span></div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" data-width="85"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span>MongoDB / Mongoose</span><span>87%</span></div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" data-width="87"></div>
+              </div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span>Node.js / Express</span><span>83%</span></div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" data-width="83"></div>
+              </div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span>Python / Flask</span><span>72%</span></div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" data-width="72"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
+    <div class="container z1">
+      <div class="section-label"><span>// 03</span> Projects</div>
+      <h2 class="section-heading">Things I've <span class="gradient-text">built</span></h2>
+      <p class="section-sub">A selection of projects spanning CMS platforms, clinic management, e-commerce backends, and
+        quiz systems.</p>
+
+      <div class="projects-grid">
+
+        <!-- Featured: CMS Admin Panel -->
+        <div class="project-card featured">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #0c1020 0%, #131828 100%);">
+            <span class="project-thumb-icon">🏗️</span>
+            <div
+              style="position:absolute; inset:0; background: radial-gradient(ellipse at 30% 50%, rgba(79,110,247,0.2), transparent 60%);">
+            </div>
+            <div
+              style="position:absolute; bottom:20px; left:24px; font-family: var(--ff-mono); font-size:0.7rem; color: var(--accent2);">
+              &lt;CMS&gt; admin dashboard initializing...
+            </div>
+            <div class="project-thumb-overlay">
+              <a href="#" class="btn-ghost" style="font-size:0.72rem; padding:10px 16px;">
+                <i class="bi bi-github"></i> Code
+              </a>
+            </div>
+          </div>
+          <div class="project-body" style="background: var(--surface2);">
+            <div class="project-year">2026 · FEATURED</div>
+            <h3 class="project-name">Dynamic CMS Admin Panel</h3>
+            <p class="project-desc">A headless CMS backend enabling clients to fully manage website content through a
+              secure admin interface — zero developer involvement in day-to-day updates. Built with NestJS Guards for
+              route-level authorization and Cloudinary for end-to-end image management.</p>
+            <div class="project-stack">
+              <span class="project-tag">NestJS</span>
+              <span class="project-tag">Mongoose</span>
+              <span class="project-tag">MongoDB Atlas</span>
+              <span class="project-tag">Cloudinary</span>
+              <span class="project-tag">JWT</span>
+              <span class="project-tag">RBAC</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clinic World -->
+        <div class="project-card">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #081520, #0f2030);">
+            <span class="project-thumb-icon">🏥</span>
+            <div
+              style="position:absolute; inset:0; background: radial-gradient(ellipse at 70% 30%, rgba(0,229,192,0.15), transparent 60%);">
+            </div>
+            <div class="project-thumb-overlay">
+              <a href="#" class="btn-ghost" style="font-size:0.72rem; padding:10px 16px;">
+                <i class="bi bi-github"></i> Code
+              </a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-year">2025</div>
+            <h3 class="project-name">Clinic World</h3>
+            <p class="project-desc">Full-stack MEAN application for clinic-patient management. Patients can search
+              nearby clinics by location and specialty, view doctor profiles, and book appointments in real time.</p>
+            <div class="project-stack">
+              <span class="project-tag">Angular 19</span>
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">Express</span>
+              <span class="project-tag">MongoDB</span>
+              <span class="project-tag">JWT</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- E-Commerce Backend -->
+        <div class="project-card">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #100810, #1a0a20);">
+            <span class="project-thumb-icon">🛒</span>
+            <div
+              style="position:absolute; inset:0; background: radial-gradient(ellipse at 40% 70%, rgba(255,95,126,0.12), transparent 60%);">
+            </div>
+            <div class="project-thumb-overlay">
+              <a href="#" class="btn-ghost" style="font-size:0.72rem; padding:10px 16px;">
+                <i class="bi bi-github"></i> Code
+              </a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-year">2024</div>
+            <h3 class="project-name">E-Commerce Backend</h3>
+            <p class="project-desc">Scalable RESTful backend covering product catalogue, user auth, cart management, and
+              order processing APIs. JWT-protected routes, MVC pattern, Git branching strategy.</p>
+            <div class="project-stack">
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">Express</span>
+              <span class="project-tag">MongoDB</span>
+              <span class="project-tag">JWT</span>
+              <span class="project-tag">MVC</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quiz Master -->
+        <div class="project-card">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #080f10, #102020);">
+            <span class="project-thumb-icon">📝</span>
+            <div
+              style="position:absolute; inset:0; background: radial-gradient(ellipse at 60% 40%, rgba(79,200,247,0.12), transparent 60%);">
+            </div>
+            <div class="project-thumb-overlay">
+              <a href="#" class="btn-ghost" style="font-size:0.72rem; padding:10px 16px;">
+                <i class="bi bi-github"></i> Code
+              </a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-year">2024</div>
+            <h3 class="project-name">Quiz Master</h3>
+            <p class="project-desc">Full-stack quiz platform where admins schedule quizzes with time windows and users
+              attempt them on assigned dates. Score tracking with interactive performance analytics graphs.</p>
+            <div class="project-stack">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Flask</span>
+              <span class="project-tag">HTML5</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Mini Projects -->
+      <div class="mt-5">
+        <div class="floating-badge" style="display:inline-flex;">
+          <div class="dot"></div> Mini Projects
+        </div>
+        <div class="mini-grid">
+          <span class="mini-badge">Pizza-Hut Clone</span>
+          <span class="mini-badge">Mina Store</span>
+          <span class="mini-badge">Sweet Store</span>
+          <span class="mini-badge">E-Shop</span>
+          <span class="mini-badge">Dribbble Clone</span>
+          <span class="mini-badge">Drag-N-Drop</span>
+          <span class="mini-badge">Portfolio</span>
+          <span class="mini-badge">CRUD APIs</span>
+          <span class="mini-badge">User Management APIs</span>
+          <span class="mini-badge">Machine Test APIs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience">
+    <div class="container z1">
+      <div class="section-label"><span>// 04</span> Experience</div>
+      <h2 class="section-heading">Where I've <span class="gradient-text">worked</span></h2>
+      <p class="section-sub mb-5">Real-world experience building production systems with measurable impact.</p>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Full Stack Developer</div>
+            <div class="exp-company">Iceico Pvt. Ltd. · Nagpur, Maharashtra</div>
+          </div>
+          <div class="exp-period">2025 – Present</div>
+        </div>
+        <ul class="exp-list">
+          <li>Delivered 5–6 production Angular (v17+) websites for clients — building reusable component libraries, lazy
+            loading, reactive forms, and routing for responsive cross-device experiences.</li>
+          <li>Built a full-featured CMS admin panel using NestJS that allows clients to independently add, update, and
+            delete website content — eliminating developer involvement in routine changes.</li>
+          <li>Integrated Cloudinary for cloud-based image storage and CDN delivery — managing upload pipelines, secure
+            URL generation, and image transformation within NestJS backend.</li>
+          <li>Designed RESTful APIs with full CRUD using NestJS decorators (@Controller, @Get, @Post, @Put, @Delete,
+            @Body, @Param, @UseGuards) following modular, scalable architecture patterns.</li>
+          <li>Implemented JWT-based authentication and RBAC using NestJS Guards, securing admin routes and ensuring only
+            authorized users can access write and delete operations.</li>
+          <li>Managed MongoDB Atlas cloud database with Mongoose ODM — designed schemas, maintained data relationships,
+            and optimized queries for high-availability data storage.</li>
+          <li>Collaborated directly with clients to translate design and content requirements into technical specs,
+            ensuring timely delivery and alignment with business goals.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <div class="container z1">
+      <div class="section-label"><span>// 05</span> Contact</div>
+      <div class="contact-card">
+        <h2 class="contact-heading">Let's build something<br><span class="gradient-text">great together</span></h2>
+        <p class="contact-desc">I'm open to new opportunities, collaborations, and interesting projects. My inbox is
+          always open — say hi!</p>
+
+        <div class="hero-btns justify-content-center mb-4">
+          <a href="mailto:adityahedau293@gmail.com" class="btn-primary-custom">
+            <i class="bi bi-envelope"></i> adityahedau293@gmail.com
+          </a>
+        </div>
+
+        <div class="contact-links">
+          <a href="https://linkedin.com/in/aditya-hedau" target="_blank" class="contact-link">
+            <i class="bi bi-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://github.com/Aditya-2004-GitHub" target="_blank" class="contact-link">
+            <i class="bi bi-github"></i> GitHub
+          </a>
+          <a href="tel:+919561700261" class="contact-link">
+            <i class="bi bi-phone"></i> +91 95617 00261
+          </a>
+          <a (click)="downloadCV()" class="contact-link">
+            <i class="bi bi-download"></i> Download CV
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container z1">
+      <div class="footer-inner">
+        <div class="footer-copy">
+          Designed & Built by <span>Aditya Hedau</span> · 2026
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/Aditya-2004-GitHub" target="_blank"><i class="bi bi-github"></i></a>
+          <a href="https://linkedin.com/in/aditya-hedau" target="_blank"><i class="bi bi-linkedin"></i></a>
+          <a href="mailto:adityahedau293@gmail.com"><i class="bi bi-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 <router-outlet />

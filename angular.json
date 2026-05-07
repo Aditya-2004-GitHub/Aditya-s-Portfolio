@@ -25,7 +25,15 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/gsap/dist/gsap.min.js",
+              "node_modules/gsap/dist/ScrollTrigger.min.js",
+              "node_modules/gsap/dist/TextPlugin.min.js",
+              "node_modules/typed.js/dist/typed.umd.js"
             ]
           },
           "configurations": {
